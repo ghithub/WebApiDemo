@@ -6,9 +6,11 @@
 <div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
+        <p>
+            ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
+            a broad range of clients, including browsers and mobile devices. ASP.NET Web API
+            is an ideal platform for building RESTful applications on the .NET Framework.
+        </p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
@@ -22,3 +24,27 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-4">
+        test col-md-4
+        <div id="div1">
+
+        </div>
+    </div>
+</div>
+@*The following script demos how to call web api services:*@
+@section scripts{
+    <script>
+        $(function () {
+            $.when(
+                $.ajax("/api/ctrl-values/do-get")
+                ).done(function (data) {
+                    var old = data;
+                    $.when($.ajax("/api/ctrl-values/do-get/5")).done(
+                        function (data) {
+                            $("#div1").html("returned values: old=" + old + " new=" + data);
+                        });                    
+                });
+        })
+    </script>
+}
