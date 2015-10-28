@@ -12,7 +12,7 @@ namespace WebApiDemo {
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
+                name: "DefaultApi", 
                 //routeTemplate: "api/ctrl-{controller}/do-{action}/{id}",
                 //routeTemplate: "api/{controller}/{action}/{id}",
                 routeTemplate: "api/{controller}/{id}",
