@@ -18,7 +18,9 @@ namespace WebApiDemo.Controllers {
             return "value-" + id;
         }
 
-        // POST api/values
+        // POST api/values/post
+        // Read important info about how to post to web api from javascript at
+        // http://encosia.com/using-jquery-to-post-frombody-parameters-to-web-api/
         public void Post([FromBody]string value) {
         }
 

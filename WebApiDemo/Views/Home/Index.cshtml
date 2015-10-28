@@ -32,19 +32,30 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12">
+        <button id="go" class="btn btn-default">Go</button>
+    </div>
+</div>
 @*The following script demos how to call web api services:*@
 @section scripts{
     <script>
         $(function () {
             $.when(
-                $.ajax("/api/ctrl-values/do-get")
+                $.ajax("/api/values")
                 ).done(function (data) {
                     var old = data;
-                    $.when($.ajax("/api/ctrl-values/do-get/5")).done(
+                    $.when($.ajax("/api/values/5")).done(
                         function (data) {
                             $("#div1").html("returned values: old=" + old + " new=" + data);
                         });                    
                 });
+
+            //Read important info about how to post to web api at 
+            //http://encosia.com/using-jquery-to-post-frombody-parameters-to-web-api/
+            $("#go").on("click", function () {
+                $.post("/api/values", {"": "mvc api demo"});
+            });
         })
     </script>
 }
